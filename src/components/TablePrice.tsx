@@ -3,8 +3,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 const TablePrice = () => {
   return (
-    <>
-      <table className="table-auto rounded-lg p-3 w-[50rem]  border-separate border-spacing-y-3">
+    <section className="flex justify-center">
+      <table className="table-auto rounded-lg p-3 w-[60rem]  border-separate border-spacing-y-3">
         <thead className=" mb-3">
           <tr className="bg-purple-500 text-left text-white">
             <th className="p-3 rounded-sm">Descrição</th>
@@ -61,7 +61,7 @@ const TablePrice = () => {
           </tr>
         </tbody>
       </table>
-    </>
+    </section>
   );
 };
 
