@@ -2,6 +2,8 @@ import { z } from "zod";
 import useModalStore from "../store/modalStore";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { v4 as uuidv4 } from "uuid";
+import { useTransitionMutate } from "../hooks/useTransitionMutate";
 
 export default function FormTransition() {
   const toggleModal = useModalStore((state) => state.toggleModal);
@@ -14,16 +16,26 @@ export default function FormTransition() {
 
   type TransitionSchema = z.infer<typeof transitionSchema>;
 
-  const { register, handleSubmit } = useForm<TransitionSchema>({
+  const { register, handleSubmit, reset } = useForm<TransitionSchema>({
     resolver: zodResolver(transitionSchema),
   });
 
-  const handleForm = (data: TransitionSchema) => {
-    console.log(data);
+  const { mutate } = useTransitionMutate();
+
+  const submitForm = async (data: TransitionSchema) => {
+    const id = uuidv4();
+
+    const { description, price, date } = data;
+
+    const newTransition = { id, description, price, date };
+
+    mutate(newTransition);
+
+    reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(handleForm)} className="grid gap-5 mt-8">
+    <form onSubmit={handleSubmit(submitForm)} className="grid gap-5 mt-8">
       <label>
         <input
           type="text"

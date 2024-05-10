@@ -1,0 +1,46 @@
+{
+  "transition": [
+    {
+      "id": "1",
+      "description": "Luz",
+      "price": 250,
+      "date": "25/04/2024"
+    },
+    {
+      "id": "2",
+      "description": "Água",
+      "price": 150,
+      "date": "15/04/2024"
+    },
+    {
+      "id": "90c4f72f-1b8b-43e6-a4da-990ba0741ba9",
+      "description": "IPTU",
+      "price": 2580,
+      "date": "2024-05-08"
+    },
+    {
+      "id": "15841a41-de15-425f-9025-f1b773a4eba2",
+      "description": "GamePass",
+      "price": 50,
+      "date": "2024-05-10"
+    },
+    {
+      "id": "2ff12d9a-8ea8-48ed-84f6-036c122b6b6a",
+      "description": "Gás",
+      "price": 100,
+      "date": "2024-05-10"
+    },
+    {
+      "id": "59727af3-1ea8-4f75-9b87-06daf7d351f2",
+      "description": "Salario",
+      "price": 4500,
+      "date": "2024-05-05"
+    },
+    {
+      "id": "f4468205-f197-4b5f-9a8a-ae9b48cee4c2",
+      "description": "INTERNET",
+      "price": 250,
+      "date": "2024-05-15"
+    }
+  ]
+}
