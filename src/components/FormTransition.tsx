@@ -20,7 +20,7 @@ export default function FormTransition() {
     resolver: zodResolver(transitionSchema),
   });
 
-  const { mutate } = useTransitionMutate();
+  const { mutate, isSuccess } = useTransitionMutate();
 
   const submitForm = async (data: TransitionSchema) => {
     const id = uuidv4();
@@ -32,6 +32,10 @@ export default function FormTransition() {
     mutate(newTransition);
 
     reset();
+
+    if (isSuccess) {
+      toggleModal();
+    }
   };
 
   return (
