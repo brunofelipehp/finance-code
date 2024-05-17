@@ -1,9 +1,27 @@
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useTransitionTable } from "../hooks/useTransitionTable";
+import { useTransitionDeleteMutate } from "../hooks/useTransitionDeleteMutate";
+import useModalStore from "../store/modalStore";
+import useTransitionStore from "../store/transitionStore";
 
 const TablePrice = () => {
   const { data } = useTransitionTable();
+
+  const { mutate } = useTransitionDeleteMutate();
+
+  function deleteTransition(id: string) {
+    mutate(id);
+  }
+
+  const toggleModal = useModalStore((state) => state.toggleModal);
+
+  const setTransitionId = useTransitionStore((state) => state.setTransitionId);
+
+  const handleFormById = (id: string) => {
+    setTransitionId(id);
+    toggleModal();
+  };
 
   return (
     <section className="flex justify-center">
@@ -27,10 +45,14 @@ const TablePrice = () => {
               <td>
                 <div className="flex gap-2 justify-center items-center">
                   <div>
-                    <FiEdit size={24} color="green" />
+                    <button onClick={() => handleFormById(transition.id)}>
+                      <FiEdit size={24} color="green" />
+                    </button>
                   </div>
                   <div>
-                    <RiDeleteBin6Line size={24} color="red" />
+                    <button onClick={() => deleteTransition(transition.id)}>
+                      <RiDeleteBin6Line size={24} color="red" />
+                    </button>
                   </div>
                 </div>
               </td>

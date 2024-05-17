@@ -1,9 +1,14 @@
+import { TransitionProps } from "../interfaces/transition-data";
 import useModalStore from "../store/modalStore";
 import FormTransition from "./FormTransition";
 
+export interface ModalProps {
+  transition: TransitionProps;
+}
+
 export default function Modal() {
   const isOpen = useModalStore((state) => state.isOpen);
-
+  //console.log(transition.id);
   return (
     <div
       className={`${

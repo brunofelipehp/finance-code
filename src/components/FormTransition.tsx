@@ -4,9 +4,19 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { v4 as uuidv4 } from "uuid";
 import { useTransitionMutate } from "../hooks/useTransitionMutate";
+import useTransitionStore from "../store/transitionStore";
+import { useGetTransitionById } from "../hooks/useGetTransitionById";
 
 export default function FormTransition() {
   const toggleModal = useModalStore((state) => state.toggleModal);
+
+  const transitionId = useTransitionStore((state) => state.transitionId);
+
+  const { data } = useGetTransitionById(transitionId);
+
+  //const { description, price, date } = data;
+
+  console.log(data);
 
   const transitionSchema = z.object({
     description: z.string(),
@@ -18,6 +28,12 @@ export default function FormTransition() {
 
   const { register, handleSubmit, reset } = useForm<TransitionSchema>({
     resolver: zodResolver(transitionSchema),
+    defaultValues: async () => {
+      const transData = { description: "", price: 0, date: "" };
+      const response = data ?? transData;
+
+      return response;
+    },
   });
 
   const { mutate, isSuccess } = useTransitionMutate();

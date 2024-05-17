@@ -1,28 +1,16 @@
 {
   "transition": [
     {
-      "id": "90c4f72f-1b8b-43e6-a4da-990ba0741ba9",
-      "description": "IPTU",
-      "price": 2580,
-      "date": "2024-05-08"
-    },
-    {
-      "id": "6704ca70-133c-45af-ae64-314d26fd017f",
-      "description": "Gás",
-      "price": 100,
-      "date": "2024-05-08"
-    },
-    {
-      "id": "afe4fff7-6c4f-4ff6-bcb8-c1ec3c2dd409",
+      "id": "1ae76ca6-4c91-4c8b-a2e7-eb9994061b32",
       "description": "Luz",
-      "price": 250,
-      "date": "2024-05-17"
+      "price": 10,
+      "date": "2024-05-15"
     },
     {
-      "id": "163b4c3e-9794-4440-85bf-846dc926e20a",
-      "description": "Agua",
-      "price": 80,
-      "date": "2024-05-10"
+      "id": "8567f568-927e-45ad-a051-b053e55f7b25",
+      "description": "Salario",
+      "price": 4500,
+      "date": "2024-05-15"
     }
   ]
 }
