@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export interface TransitionStateProps {
+interface TransitionStateProps {
   transitionId: string | null;
   setTransitionId: () => void;
 }

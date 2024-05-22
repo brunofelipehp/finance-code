@@ -2,10 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { api } from "../api";
 import { AxiosPromise } from "axios";
 import { TransitionProps } from "../interfaces/transition-data";
-import { TransitionStateProps } from "../store/transitionStore";
 
 const fetchData = async (
-  transitionId: TransitionStateProps
+  transitionId: string | null
 ): AxiosPromise<TransitionProps> => {
   const response = await api.get<TransitionProps>(
     `/transition/${transitionId}`
@@ -13,11 +12,11 @@ const fetchData = async (
   return response;
 };
 
-export const useGetTransitionById = (transitionId: TransitionStateProps) => {
+export const useGetTransitionById = (transitionId: string | null) => {
   const query = useQuery({
     queryFn: () => fetchData(transitionId),
     queryKey: ["transition-data"],
-    enabled: !!transitionId,
+    enabled: transitionId != null,
   });
 
   return { ...query, data: query.data?.data };

@@ -18,9 +18,11 @@ const TablePrice = () => {
 
   const setTransitionId = useTransitionStore((state) => state.setTransitionId);
 
-  const handleFormById = (id: string) => {
-    setTransitionId(id);
-    toggleModal();
+  const handleFormById = (id: string | null) => {
+    if (id) {
+      setTransitionId();
+      toggleModal();
+    }
   };
 
   return (
